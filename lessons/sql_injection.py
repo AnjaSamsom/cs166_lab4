@@ -20,7 +20,7 @@ def create_search_query(account_id: int, search_term: str) -> str:
     :param search_term: str
     :return: str (the query)
     """
-
+    # removing the " and % from the search_term
     search_term = search_term.replace('"', "")
     search_term = search_term.replace("%", "")
 
