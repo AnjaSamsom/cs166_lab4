@@ -87,4 +87,12 @@ Run `werk.py` from your IDE, or from the command line
 Flask application will be served from `http://localhost:8097/`
 
 
+# ANSWERS
+SQL injections work by adding to the search query with some tricky characters that
+will close and open queries. To make sure that no SQL injection attacks happened,
+I sanitized the input. To do this, I removed " and % from the search_term using
+the .replace() method, replacing those values with nothing. This insures that any
+attacks won't make it through because the characters that allow them to work are removed!
+
+
 

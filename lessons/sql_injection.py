@@ -20,9 +20,14 @@ def create_search_query(account_id: int, search_term: str) -> str:
     :param search_term: str
     :return: str (the query)
     """
+
+    search_term = search_term.replace('"', "")
+    search_term = search_term.replace("%", "")
+
     # Never do this in the real world...
     q = 'SELECT * FROM trnsaction ' \
         'WHERE trnsaction.account_id = {} ' \
         'AND ' \
         'trnsaction.memo LIKE "%{}%"'.format(account_id, search_term)
+
     return q
