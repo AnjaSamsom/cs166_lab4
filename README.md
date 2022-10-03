@@ -89,8 +89,10 @@ Flask application will be served from `http://localhost:8097/`
 
 # ANSWERS
 SQL injections work by adding to the search query with some tricky characters that
-will close and open queries. To make sure that no SQL injection attacks happened,
-I sanitized the input. To do this, I removed " and % from the search_term using
+will close one query and then add a new one. Most of the time, the added clause is something
+that always evaluates to true, showing all information that might have been hidden before, like 
+in our example. To make sure that no SQL injection attacks happened,
+I sanitized the input. I removed " and % from the search_term using
 the .replace() method, replacing those values with nothing. This insures that any
 attacks won't make it through because the characters that allow them to work are removed!
 
