@@ -3,7 +3,7 @@ Password salting and hashing example
 """
 
 import hashlib
-# import os  # << hint
+import os  # << hint
 
 
 def hash_pw(plain_text, salt='') -> str:
@@ -36,6 +36,7 @@ def hash_pw(plain_text, salt='') -> str:
     :param salt: str
     :return: str (ASCII-encoded salt + hash)
     """
+    salt = str(os.urandom(40))
     hashable = salt + plain_text  # concatenate salt and plain_text
     hashable = hashable.encode('utf-8')  # convert to bytes
     this_hash = hashlib.sha1(hashable).hexdigest()  # hash w/ SHA-1 and hexdigest
